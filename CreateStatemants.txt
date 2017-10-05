@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 //Criar database\
+CREATE DATABASE `SascarIntegra` /*!40100 DEFAULT CHARACTER SET latin1 */;\
+\
+//Criar tabela pacotePosicoes\
+CREATE TABLE `pacotePosicoes` (\
+  `idPacote` bigint(20) NOT NULL,\
+  `dataPacote` datetime DEFAULT NULL,\
+  `dataPosicao` datetime DEFAULT NULL,\
+  `latitude` double DEFAULT NULL,\
+  `longitude` double DEFAULT NULL,\
+  `rua` varchar(100) DEFAULT NULL,\
+  `cidade` varchar(100) DEFAULT NULL,\
+  `uf` varchar(100) DEFAULT NULL,\
+  `idVeiculo` int(11) DEFAULT NULL,\
+  `bloqueio` int(11) DEFAULT NULL,\
+  `ignicao` int(11) DEFAULT NULL,\
+  `velocidade` int(11) DEFAULT NULL,\
+  PRIMARY KEY (`idPacote`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;\
+\
+//Criar tabela Veiculos\
+CREATE TABLE `Veiculo` (\
+  `idVeiculo` int(11) NOT NULL,\
+  `placa` varchar(45) DEFAULT NULL,\
+  `descricao` varchar(45) DEFAULT NULL,\
+  PRIMARY KEY (`idVeiculo`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;\
+\
+}
