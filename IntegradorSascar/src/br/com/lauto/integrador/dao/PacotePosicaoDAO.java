@@ -36,9 +36,13 @@ public class PacotePosicaoDAO {
                 ps.setInt(8, pacote.getIgnicao());
                 ps.setInt(9, pacote.getVelocidade());
                 ps.setInt(10, pacote.getBloqueio());
+            
+                //Transformando de XMLGregorianDate to Timestamp
+                Timestamp dataPosicao = new Timestamp(pacote.getDataPosicao().toGregorianCalendar().getTimeInMillis());
+                Timestamp dataPacote  = new Timestamp(pacote.getDataPacote().toGregorianCalendar().getTimeInMillis());
                 
-                ps.setTimestamp(11, new Timestamp(pacote.getDataPosicao().getYear(), pacote.getDataPosicao().getMonth(), pacote.getDataPosicao().getDay(),pacote.getDataPosicao().getHour(), pacote.getDataPosicao().getMinute(), pacote.getDataPosicao().getSecond(), pacote.getDataPosicao().getMillisecond()));
-                ps.setTimestamp(12, new Timestamp(pacote.getDataPacote().getYear(), pacote.getDataPacote().getMonth(), pacote.getDataPacote().getDay(), pacote.getDataPacote().getHour(), pacote.getDataPacote().getMinute(), pacote.getDataPacote().getSecond(), pacote.getDataPacote().getMillisecond()));
+                ps.setTimestamp(11, dataPosicao);
+                ps.setTimestamp(12, dataPacote);
                 
                 ps.executeUpdate();
                 ps.close();
@@ -49,8 +53,7 @@ public class PacotePosicaoDAO {
             }
         }
         else{
-            System.out.println("Pacote Repetido");
-            return true;
+            return false;
         }
     }
     
